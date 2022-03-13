@@ -1,0 +1,18 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "slidev build",
+    "dev": "slidev --open",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@slidev/cli": "^0.28.10",
+    "@slidev/theme-default": "*",
+    "@slidev/theme-seriph": "*",
+    "ethers": "^5.6.0",
+    "numeral": "^2.0.6",
+    "pinia": "^2.0.11",
+    "slidev-theme-vuetiful": "^0.1.0"
+  },
+  "name": "smart-contracts-ethereum-slides"
+}

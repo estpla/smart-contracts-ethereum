@@ -1,0 +1,12 @@
+.mini-logo {
+  @apply h-25;
+  margin: 0 auto;
+}
+
+.btn {
+  @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-with-icon {
+  @apply inline-flex items-center;
+}
