@@ -10,8 +10,11 @@ contract Payable {
     wallet = _wallet;
   }
 
-  function() external payable {
+  fallback() external payable {
     buyToken();
+  }
+
+  receive() external payable {
   }
 
   function buyToken() public payable {
