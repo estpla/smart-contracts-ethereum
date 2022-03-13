@@ -16,6 +16,6 @@ contract Payable {
 
   function buyToken() public payable {
     balances[msg.sender]++;
-    wallet.transfter(msg.value);
+    wallet.transfer(msg.value);
   }
 }
