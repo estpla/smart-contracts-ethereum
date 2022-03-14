@@ -31,8 +31,8 @@ title: Smart contracts con Ethereum | Esteban Platero
 - Herramientas
 - Solidity
 - B2BPay
-- Backend
-- Frontend
+- Desarrollo Backend
+- Desarrollo Frontend
 
 ---
 background: background1.jpg
@@ -182,10 +182,9 @@ titleRow: true
 
 ---
 layout: quote
-author: Linus Torvalds
 ---
 
-# Talk is cheap. Show me the code.
+# Fast Hands-on Solidity
 
 ---
 background: background3.jpg
@@ -393,13 +392,13 @@ contract.on('newContractRegistered', (id) => {
   <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
     Id
   </label>
-  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="id" v-model="contractData.id" placeholder="Id">
+  <input class="shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="id" v-model="contractData.id" placeholder="Id">
 </div>
 <div class="mb-6">
   <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
     Datos
   </label>
-  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="datos" v-model="contractData.data" placeholder="Datos">
+  <input class="shadow appearance-none border rounded py-1 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" type="text" name="datos" v-model="contractData.data" placeholder="Datos">
 </div>
 
 <ContractDeployedComponent class="mt-8">
@@ -451,7 +450,7 @@ const c = await contract.getContractById(1);
   <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
     Id
   </label>
-  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="id" v-model="contractData.id" placeholder="Id">
+  <input class="shadow appearance-none border rounded py-1 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="number" name="id" v-model="contractData.id" placeholder="Id">
 </div>
 
 <ContractDeployedComponent class="mt-8">
@@ -466,7 +465,7 @@ const c = await contract.getContractById(1);
 <script setup lang="ts">
 import { ContractFactory, ethers } from 'ethers';
 import { useContractStore } from '/stores/contract';
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 
 const store = useContractStore();
 
@@ -488,11 +487,17 @@ const getContract = async () => {
   contract.id = c[0].toNumber();
   contract.data = c[1];
 }
+
+const lines = ref(['Linea 1', 'Linea 2']);
 </script>
 
 <ContractDeployedComponent class="mt-16">
   <pre>{{ contract }}</pre>
 </ContractDeployedComponent>
+
+<div class="pt-16 h-full">
+  <Console />
+</div>
 
 ---
 
