@@ -19,4 +19,5 @@ export default {
   title: String,
   titleRow: Boolean,
   slideTitle: String,
+  background: String,
 }

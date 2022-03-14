@@ -28,7 +28,6 @@ title: Smart contracts con Ethereum | Esteban Platero
 
 # Indice
 
-- Introducción
 - Herramientas
 - Solidity
 - B2BPay
@@ -330,14 +329,14 @@ cols: 1-1
 - Bytecode
 
 ```js
-const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+const provider = new ethers.providers.Web3Provider(
+  window.ethereum, "any");
 const signer = provider.getSigner();
 
 const factory = new ContractFactory(abi, byteCode, signer);
 
 // If your contract requires constructor args, you can specify them here
 const contract = await factory.deploy();
-
 // contract.address
 // contract.deployTransaction
 ```
@@ -492,7 +491,9 @@ const getContract = async () => {
 </script>
 
 <ContractDeployedComponent class="mt-16">
-  <div>
-    {{ JSON.stringify(contract, null, 2) }}
-  </div>
+  <pre>{{ contract }}</pre>
 </ContractDeployedComponent>
+
+---
+
+# Recursos útiles
