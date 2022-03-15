@@ -40,7 +40,7 @@ export const useContractStore = defineStore('contract', {
         this.contract = contract;
         this.deployed = true;
 
-        contract.on('newContractRegistered', (id) => {
+        contract.on('newContractRegistered', async (id) => {
           consoleStore.addMessage(
             `newContractRegistered event received: ${id}`
           );

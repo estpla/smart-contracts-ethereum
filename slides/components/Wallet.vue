@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useWalletStore } from "../stores/wallet";
+import { useWalletStore } from '../stores/wallet';
 
 const store = useWalletStore();
 </script>
@@ -454,13 +454,14 @@ const store = useWalletStore();
         Connect with MetaMask
       </button>
     </div>
-    <div
+    <button
       v-else
       @click="store.disconnect()"
-      class="p-2 border-1 border-sky-500 rounded-md hover:bg-gray-100"
+      type="button"
+      class="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 focus:ring-4 focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-600 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 mr-2 mb-2"
     >
       {{ store.network }} - {{ store.address }} - {{ store.balance }} ETH
-    </div>
+    </button>
   </div>
 </template>
 

@@ -292,6 +292,7 @@ $ sold —abi SampleToken.sol
 Contract JSON ABI 
 [{"constant":true,"inputs":[],"name":"testFunc","outputs":[{"name":"","type":"int256"}],"payable":false,"stateMutability":"pure","type":"function"}]
 ```
+
 <style>
   pre {
     @apply mb-6;
