@@ -12,7 +12,11 @@
     "ethers": "^5.6.0",
     "numeral": "^2.0.6",
     "pinia": "^2.0.11",
-    "slidev-theme-vuetiful": "^0.1.0"
+    "slidev-theme-vuetiful": "^0.1.0",
+    "vue-toastification": "^2.0.0-rc.5"
   },
-  "name": "smart-contracts-ethereum-slides"
+  "name": "smart-contracts-ethereum-slides",
+  "devDependencies": {
+    "playwright-chromium": "^1.20.0"
+  }
 }

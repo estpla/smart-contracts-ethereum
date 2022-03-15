@@ -52,7 +52,29 @@ titleRow: true
 - Intuitiva
 - Multiplataforma
 
-[Ganache](https://trufflesuite.com/ganache/index.html)
+<hr class="footnotes-sep">
+<section class="footnotes">
+  <ul class="footnotes-list">
+    <li id="fn1" class="footnote-item">
+      <a href="https://trufflesuite.com/ganache/index.html" target="_blank" rel="noopener">Ganache</a> 
+    </li>
+  </ul>
+</section>
+
+<style>
+.footnotes-sep {
+  @apply mt-48 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+.footnotes-list {
+  list-style-type: none;
+}
+</style>
 
 ::right::
 
@@ -94,7 +116,29 @@ titleRow: true
 - Acceso al estado y las propiedades
 - Análisis del código
 
-[Remix IDE](https://remix.ethereum.org/)
+<hr class="footnotes-sep">
+<section class="footnotes">
+  <ul class="footnotes-list">
+    <li id="fn1" class="footnote-item">
+      <a href="https://remix.ethereum.org/" target="_blank" rel="noopener">Remix IDE</a> 
+    </li>
+  </ul>
+</section>
+
+<style>
+.footnotes-sep {
+  @apply mt-40 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+.footnotes-list {
+  list-style-type: none;
+}
+</style>
 
 ::right::
 
@@ -126,7 +170,7 @@ titleRow: true
 
 <style>
 .footnotes-sep {
-  @apply mt-60 opacity-10;
+  @apply mt-50 opacity-10;
 }
 .footnotes {
   @apply text-sm opacity-75;
@@ -143,9 +187,7 @@ titleRow: true
 image: metamask_screen.jpg
 ---
 
-# Metamask
-
-## Redes
+# Metamask: Redes
 
 - **Mainnet (Producción)**
 - Ropsten 
@@ -153,9 +195,9 @@ image: metamask_screen.jpg
 - Goerli
 - Kovan
 - **Localhost (Ganache/Otras)**
+- Binance Smart Chain (BSC)
 
 <arrow v-click="1" x1="450" y1="220" x2="650" y2="85" color="#564" width="3" arrowSize="1" />
-
 
 ---
 background: background2.jpg
@@ -173,18 +215,117 @@ titleRow: true
 - Lenguaje de alto nivel
 - Tipado estático
 - Orientado a objetos
-- Programar Smart Contracts para la red de Ethereum (EVM)
+- Programar Smart Contracts para la red de Ethereum (EVM)[^1]
 - Sintáxis similar a C++
+
+[^1]: Ethereum Virtual Machine
+
+<style>
+.footnotes-sep {
+  @apply mt-26 opacity-10;
+}
+.footnotes {
+  @apply text-sm opacity-75;
+}
+.footnote-backref {
+  display: none;
+}
+</style>
 
 ::right::
 
 <img src="solidity_logo.svg" class="mini-logo" />
 
 ---
+cols: 1-1
+slideTitle: "Solidity: Compilación"
+titleRow: true
+---
+
+#### Instalar compilador
+```bash
+npm install -g solc
+```
+
+#### Smart Contract de ejemplo
+```solidity
+pragma solidity ^0.5.8;
+
+contract SampleContract {
+  function testFunc() public pure returns (int) {
+    return 1;
+  }
+}
+```
+
+<style>
+  pre {
+    @apply mb-6;
+  }
+</style>
+
+::right::
+
+<img src="solidity_logo.svg" class="mini-logo" />
+
+---
+cols: 1-1
+slideTitle: "Solidity: Compilación"
+titleRow: true
+---
+
+#### EVM Bytecode
+
+```bash
+$ solc --bin SampleToken.sol
+
+> ======= SampleContract.sol:SampleContract =======
+Binary:
+6080604052348015600f57600080fd5b5060878061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063037a417c14602d575b600080fd5b60336049565b6040518082815260200191505060405180910390f35b6000600190509056fea265627a7a7230582050d33093e20eb388eec760ca84ba30ec42dadbdeb8edf5cd8b261e89b8d4279264736f6c634300050a0032
+```
+
+#### Contract ABI
+```bash
+$ sold —abi SampleToken.sol
+
+> ======= SampleContract.sol:SampleContract =======
+Contract JSON ABI 
+[{"constant":true,"inputs":[],"name":"testFunc","outputs":[{"name":"","type":"int256"}],"payable":false,"stateMutability":"pure","type":"function"}]
+```
+<style>
+  pre {
+    @apply mb-6;
+  }
+</style>
+
+::right::
+
+<img src="solidity_logo.svg" class="mini-logo" />
+
+
+---
 layout: quote
 ---
 
 # Fast Hands-on Solidity
+
+---
+cols: 1-1
+slideTitle: Solidity
+titleRow: true
+---
+
+- Condicionales
+- Loops
+- Herencia
+- Interfaces
+- Librerias
+- Conversion entre tipos
+- ...
+
+::right::
+
+<img src="solidity_logo.svg" class="mini-logo" />
 
 ---
 background: background3.jpg
@@ -199,7 +340,32 @@ slideTitle: B2BPay
 titleRow: true
 ---
 
-Hola
+- Frontend
+- Backend Java
+- Backend Node
+- Blockchain
+
+::right::
+
+```mermaid {scale: 0.5}
+flowchart LR
+  A(Frontend)
+  B(Backend Java)
+  C(Backend Node)
+  D(Ethereum Mainnet)
+  E(Node)
+  F(Node)
+  G(Node)
+  H(Node)
+
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  D --> F
+  D --> G
+  D --> H
+```
 
 ---
 cols: 1-1
@@ -215,7 +381,7 @@ titleRow: true
 
 ::right::
 
-```solidity {all|4-8|all}
+```solidity {all|4-7|all}
 pragma solidity ^0.5.0;
 
 contract Contracts {
@@ -223,10 +389,8 @@ contract Contracts {
         uint contractId;
         string data;
     }
-
-    address public owner;
-
     mapping (uint => Contract) public contracts;
+    address public owner;
 
     event newContractRegistered(uint id);
 
@@ -429,9 +593,11 @@ const addContract = async () => await store.addContract(
 );
 </script>
 
-<div class="pt-16 h-full">
-  <Console />
-</div>
+<ContractDeployedComponent class="h-full">
+  <div class="pt-16 h-full">
+    <Console />
+  </div>
+</ContractDeployedComponent>
 
 ---
 cols: 1-1
