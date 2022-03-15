@@ -29,7 +29,7 @@ export const useWalletStore = defineStore('wallet', {
         : '',
     balance: (state) =>
       state._balance
-        ? numeral(ethers.utils.formatEther(state._balance)).format('0.00')
+        ? numeral(ethers.utils.formatEther(state._balance)).format('0.0000')
         : 0,
   },
   actions: {

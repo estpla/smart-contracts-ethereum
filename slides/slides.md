@@ -316,7 +316,7 @@ image: frontend_libs.jpg
 # Librerias frontend
 
 - Web3.js
-- Ethers
+- **Ethers**
 
 ---
 cols: 1-1
@@ -328,23 +328,30 @@ cols: 1-1
 - Bytecode
 
 ```js
+import { ContractFactory, ethers } from 'ethers';
+
 const provider = new ethers.providers.Web3Provider(
   window.ethereum, "any");
 const signer = provider.getSigner();
 
 const factory = new ContractFactory(abi, byteCode, signer);
 
-// If your contract requires constructor args, you can specify them here
-const contract = await factory.deploy();
-// contract.address
-// contract.deployTransaction
+const contract = await factory.deploy(...args);
+// contract.address | contract.deployTransaction
+
+const contract = new ethers.Contract(address, abi);
 ```
 
 <ConnectedComponent class="mt-8">
-  <button @click="deploy()" class="btn btn-with-icon">
+  <button @click="deploy()" type="button" class="btn btn-with-icon block">
     <carbon-upload class="text-sm mr-2" />
     <span>Deploy Smart Contract</span>
   </button>
+  <div class="mt-2 flex items-center">
+    <span class="mr-2">Deployed:</span>
+    <carbon-checkmark-outline v-if="store.deployed" class="text-xl text-green-400" />
+    <carbon-misuse-outline v-else class="text-xl text-red-400" />
+  </div>
 </ConnectedComponent>
 
 ::right::
@@ -358,15 +365,9 @@ const store = useContractStore();
 const deploy = () => store.deploy();
 </script>
 
-<ConnectedComponent class="mt-16">
-  <div>Contract Deployed:</div>
-  <div class="mt-2">
-    <carbon-checkmark-outline v-if="store.deployed" class="text-2xl text-green-400" />
-    <carbon-misuse-outline v-else class="text-2xl text-red-400" />
-  </div>
-  <div v-if="store.contract" class="mt-4">
-    <div>Contract:</div>
-    <div class="mt-2">{{ store.contract.address }}</div>
+<ConnectedComponent class="h-full">
+  <div class="pt-16 h-full">
+    <Console />
   </div>
 </ConnectedComponent>
 
@@ -428,10 +429,8 @@ const addContract = async () => await store.addContract(
 );
 </script>
 
-<div class="mt-16">
-  <div v-for="event in store.events" :key="`event-${event}`">
-    Contrato con id <span class="font-bold">#{{ event }}</span> creado.
-  </div>
+<div class="pt-16 h-full">
+  <Console />
 </div>
 
 ---
@@ -494,10 +493,6 @@ const lines = ref(['Linea 1', 'Linea 2']);
 <ContractDeployedComponent class="mt-16">
   <pre>{{ contract }}</pre>
 </ContractDeployedComponent>
-
-<div class="pt-16 h-full">
-  <Console />
-</div>
 
 ---
 

@@ -1,6 +1,7 @@
 import { ContractFactory, ethers } from 'ethers';
 import { defineStore } from 'pinia';
 import { contractData } from '../contracts/contract';
+import { useConsoleStore } from './console';
 import { useWalletStore } from './wallet';
 
 export const useContractStore = defineStore('contract', {
@@ -8,7 +9,6 @@ export const useContractStore = defineStore('contract', {
     return {
       contract: null,
       deployed: false,
-      events: [],
     };
   },
   actions: {
@@ -23,19 +23,27 @@ export const useContractStore = defineStore('contract', {
 
       // If your contract requires constructor args, you can specify them here
       const contract = await factory.deploy();
-      console.log('contract deployed', contract);
+
+      await store.getBalance();
+
+      const consoleStore = useConsoleStore();
+      consoleStore.addMessage(`Smart Contract deployed at: ${contract.address}`);
 
       this.contract = contract;
       this.deployed = true;
 
       contract.on('newContractRegistered', (id) => {
-        console.log('newContractRegistered', id);
-        this.events.push(id);
+        consoleStore.addMessage(`newContractRegistered event received: ${id}`);
       });
     },
     async addContract(id, data) {
-      console.log('addContract', id, data);
       await this.contract.addContract(id, data);
+
+      const store = useWalletStore();
+      await store.getBalance();
+
+      const consoleStore = useConsoleStore();
+      consoleStore.addMessage(`addContract: ${id} ${data}`);
     },
     async getContract(id) {
       return await this.contract.getContractById(id);
