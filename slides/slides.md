@@ -34,6 +34,14 @@ title: Smart contracts con Ethereum | Esteban Platero
 - Desarrollo Backend
 - Desarrollo Frontend
 
+<!--
+Buenas, soy Esteban, Desarrollador Fullstack Senior en Teralco y hoy vengo a hablaros de como programar Smart Contracts, desplegarlos e interactuar con ellos.
+
+Para ello, primero vamos a ver una serie de herramientas que necesitaremos.
+Después veremos una pequeña iniciación a Solidity, el lenguaje con el que programamos los Smart Contracts.
+Y finalmente veremos un Smart Contract que creamos en la empresa para un proyecto, y como podemos interactuar con él desde el backend y el frontend.
+-->
+
 ---
 background: background1.jpg
 layout: section
@@ -80,6 +88,11 @@ titleRow: true
 
 <img src="/ganache_logo.png" class="mini-logo" />
 
+<!--
+Una de las herramientas más importante es Ganache.
+Está herramientas nos permite de manera sencilla e intuitiva tener una blockchain local con la que realizar pruebas.
+-->
+
 ---
 cols: 1-1
 slideTitle: Ganache
@@ -97,6 +110,10 @@ titleRow: true
 
 <img src="/ganache_logo.png" class="mini-logo" />
 
+<!--
+Esta herramienta nos permite explorar por completo la red de pruebas. Podemos ver tanto cuentas, como bloques y las transacciones realizadas.
+-->
+
 ---
 layout: image
 slideTitle: Ganache
@@ -104,17 +121,24 @@ titleRow: true
 image: ganache.png
 ---
 
+
+
+<!--
+Aquí tenemos una captura de la herramienta.
+-->
+
 ---
 cols: 1-1
 slideTitle: Remix IDE
 titleRow: true
 ---
 
-- IDE Local / Online
+- IDE Online
 - Crear Smart Contracts
 - Depuración
 - Acceso al estado y las propiedades
 - Análisis del código
+- Despliegue
 
 <hr class="footnotes-sep">
 <section class="footnotes">
@@ -144,12 +168,24 @@ titleRow: true
 
 <img src="remix_logo.jpeg" class="mini-logo" />
 
+<!--
+Otra herramienta que es muy interesante es Remix IDE.
+Esta herramienta podemos utilizarla de manera online, sin necesidad de instalar ninguna dependencia.
+Nos permite crear Smart Contracts, depurarlos e incluso hacer deploys.
+-->
+
 ---
 layout: image
 slideTitle: Remix IDE
 titleRow: true
 image: remix_ide.png
 ---
+
+
+
+<!--
+Aquí tenemos una captura de la herramienta.
+-->
 
 ---
 cols: 1-1
@@ -158,8 +194,9 @@ titleRow: true
 ---
 
 - Extensión para navegador
-- Monedero para Ethereum
+- Monedero para Ethereum y otras criptomonedas
 - Interactuar con dApps [^1]
+- Chrome, Firefox, Brave, Edge
 
 [^1]: Decentralized Applications  
 [Metamask](https://metamask.io/)
@@ -180,6 +217,11 @@ titleRow: true
 }
 </style>
 
+<!--
+Finalmente, otra herramienta necesaria si queremos interactuar con los Smart Contracts desde frontend, es Metamask.
+Metamask es una extensión para navegador, que funciona en la mayoria de navegadores, y actua de billetera para distintas criptomonedas.
+-->
+
 ---
 layout: image-right
 slideTitle: Redes
@@ -196,8 +238,16 @@ image: metamask_screen.jpg
 - Kovan
 - **Localhost (Ganache/Otras)**
 - Binance Smart Chain (BSC)
+- ...
 
 <arrow v-click="1" x1="450" y1="220" x2="650" y2="85" color="#564" width="3" arrowSize="1" />
+
+<!--
+Una parte importante del desarrollo son los entorno. En Ethereum son las redes. 
+La Mainnet sería el entorno de producción.
+Ropsten/Rinkeby/Goerli/Kovan son las redes de test.
+Y tendriamos Localhost para desarollo.
+-->
 
 ---
 background: background2.jpg
@@ -215,12 +265,15 @@ titleRow: true
 - Lenguaje de alto nivel
 - Tipado estático
 - Orientado a objetos
-- Programar Smart Contracts para la red de Ethereum (EVM)[^1]
 - Sintáxis similar a C++
+- Programar Smart Contracts para la red de Ethereum (EVM) [^1]
+  - Bytecode
+  - ABI [^2]
 
 [^1]: Ethereum Virtual Machine
+[^2]: Application Binary Interface
 
-<style>
+<style scoped>
 .footnotes-sep {
   @apply mt-26 opacity-10;
 }
@@ -230,15 +283,25 @@ titleRow: true
 .footnote-backref {
   display: none;
 }
+.slidev-layout p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 </style>
 
 ::right::
 
 <img src="solidity_logo.svg" class="mini-logo" />
 
+<!--
+Para programar nuestros Smart Contracts, se utiliza el lenguaje Solidity.
+Este es un lenguaje de alto nivel, con tipado estático y orientado a objetos.
+Una vez compilado el código en Solidity, nos genera un Bytecode que es lo que finalmente interpretan los nodos EVM, y un código ABI, que seria el equivalente a una API.
+-->
+
 ---
 cols: 1-1
-slideTitle: "Solidity: Compilación"
+slideTitle: 'Solidity: Compilación'
 titleRow: true
 ---
 
@@ -267,6 +330,12 @@ contract SampleContract {
 ::right::
 
 <img src="solidity_logo.svg" class="mini-logo" />
+
+<!--
+Por lo tanto otra herramienta importante en el compilador.
+Lo podemos instalar como un paquete de Nodejs.
+Aqui tenemos un contrato de ejemplo.
+-->
 
 ---
 cols: 1-1
@@ -664,3 +733,4 @@ const lines = ref(['Linea 1', 'Linea 2']);
 ---
 
 # Recursos útiles
+ útiles
