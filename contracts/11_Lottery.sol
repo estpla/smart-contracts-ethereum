@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// https://twitter.com/SahilAujla15/status/1504070886567165953
 contract Lottery {
   // startLottery --> onlyOwner
   // buyTicket
