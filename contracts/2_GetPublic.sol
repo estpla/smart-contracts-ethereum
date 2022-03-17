@@ -9,7 +9,7 @@ contract GetPublic {
     value = "myValue";
   }
 
-  function set(string memory _value) public {
+  function setValue(string memory _value) public {
     value = _value;
   }
 }

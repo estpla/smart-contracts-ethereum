@@ -9,11 +9,11 @@ contract GetSet {
     value = "myValue";
   }
 
-  function get() public view returns(string memory) {
+  function getValue() public view returns(string memory) {
     return value;
   }
 
-  function set(string memory _value) public {
+  function setValue(string memory _value) public {
     value = _value;
   }
 }

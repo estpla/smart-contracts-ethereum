@@ -1,28 +1,24 @@
 ---
-# try also 'default' to start simple
 theme: vuetiful
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: intro.jpg
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
+class: text-center
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: false
-# some information about the slides, markdown enabled
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
 
   Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
 drawings:
   persist: false
 title: Smart contracts con Ethereum | Esteban Platero
 ---
 
 <img src="/logo_teralco.png" class="h-12 w-40" style="margin: 0 auto;" >
+
+<!--
+Buenas, soy Esteban Platero, Desarrollador Senior en Teralco y hoy voy a hablaros de como programar Smart Contracts, desplegarlos y como interactuar con ellos.
+-->
 
 ---
 
@@ -35,8 +31,6 @@ title: Smart contracts con Ethereum | Esteban Platero
 - Desarrollo Frontend
 
 <!--
-Buenas, soy Esteban Platero, Desarrollador Senior en Teralco y hoy vengo a hablaros de como programar Smart Contracts, desplegarlos e interactuar con ellos.
-
 Para ello, primero vamos a ver una serie de herramientas que necesitaremos.
 
 Después veremos una pequeña iniciación a Solidity, el lenguaje con el que programamos los Smart Contracts.
@@ -98,6 +92,8 @@ titleRow: true
 La primera herramienta y de las más importante es Ganache.
 
 Está herramientas nos permite de manera sencilla e intuitiva tener una blockchain local con la que podemos desarrollar y probar.
+
+Simplemente la instalamos y ya tenemos nuestra propia blockchain.
 -->
 
 ---
@@ -120,7 +116,7 @@ titleRow: true
 <!--
 Esta herramienta nos permite explorar por completo la red de pruebas. 
 
-Podemos ver tanto cuentas, como bloques y las transacciones.
+Podemos ver tanto cuentas, como bloques e incluso todas las transacciones realizadas.
 -->
 
 ---
@@ -179,6 +175,8 @@ Otra herramienta que es muy interesante es Remix IDE.
 Esta herramienta podemos utilizarla de manera online, sin necesidad de instalar ninguna dependencia.
 
 Nos permite crear Smart Contracts, depurarlos e incluso hacer deploys a cualquiera de las redes.
+
+Ahora después la veremos en funcionamiento.
 -->
 
 ---
@@ -196,7 +194,7 @@ Aquí tenemos una captura de la herramienta.
 
 ---
 cols: 1-1
-slideTitle: Metamask
+slideTitle: MetaMask
 titleRow: true
 ---
 
@@ -206,7 +204,7 @@ titleRow: true
 - Chrome, Firefox, Brave, Edge
 
 [^1]: Decentralized Applications  
-[Metamask](https://metamask.io/)
+[MetaMask](https://metamask.io/)
 
 ::right::
 
@@ -225,9 +223,11 @@ titleRow: true
 </style>
 
 <!--
-Finalmente, otra herramienta necesaria si queremos interactuar con los Smart Contracts desde frontend, es Metamask.
+Finalmente, otra herramienta necesaria si queremos interactuar con los Smart Contracts desde la parte frontend, es MetaMask.
 
-Metamask es una extensión para navegador, que funciona en la mayoria de navegadores, y actua de billetera para distintas criptomonedas.
+MetaMask es una extensión para navegador, que funciona en la mayoria de navegadores, y actua de billetera para distintas criptomonedas.
+
+También la podemos utilizar en Android e iOS.
 -->
 
 ---
@@ -237,7 +237,7 @@ titleRow: true
 image: metamask_screen.jpg
 ---
 
-# Metamask: Redes
+# MetaMask: Redes
 
 - **Mainnet (Producción)**
 - Ropsten 
@@ -251,19 +251,17 @@ image: metamask_screen.jpg
 <arrow v-click="1" x1="450" y1="220" x2="650" y2="85" color="#564" width="3" arrowSize="1" />
 
 <!--
-Una parte importante del desarrollo son los entornos. 
+Como sabemos, una parte importante del desarrollo son los entornos. En Ethereum son las redes. 
 
-En Ethereum son las redes. 
+Por un lado, tenemos la Mainnet, que es la red principal, el equivalente al entorno de producción. En esta red, por lo tanto, será necesario gastar moneda cuando queramos introducir datos.
 
-La Mainnet sería el entorno de producción.
+Por otro lado, tenemos las redes Ropsten, Rinkeby, Goerli y Kovan, que son las redes de test. En estas también necesitamos moneda para poder crear datos, pero estás no tienen valor real. Y los datos que introduzcamos aquí pueden llegar a desaparecer con el tiempo.
 
-Ropsten/Rinkeby/Goerli/Kovan son las redes de test.
+Y finalmente, tendriamos la red Localhost para desarrollo.
 
-Y tendriamos Localhost para desarollo.
+En MetaMask, es importante saber que podemos ver y cambiar la red con la que queremos estar.
 
-En Metamask podemos cambiarlas en este select.
-
-Mencionar que existen más redes.
+Mencionar que existen más redes y que incluso pueden trabajar con otras monedas.
 -->
 
 ---
@@ -315,7 +313,9 @@ Para programar nuestros Smart Contracts, se utiliza el lenguaje Solidity.
 
 Este es un lenguaje de alto nivel, con tipado estático y orientado a objetos.
 
-Una vez compilado el código en Solidity, nos genera un Bytecode que es lo que finalmente interpretan los nodos EVM, y un código ABI, que seria el equivalente a una API.
+Una vez compilado el código en Solidity, nos genera un Bytecode que es lo que finalmente interpretan los nodos de las Ethereum Virtual Machines.
+
+Y, por otro lado, un código JSON ABI, que seria el equivalente a un "contrato" que nos dice que funciones podemos invocar, con que parámetros y que datos nos puede devolver.
 -->
 
 ---
@@ -351,11 +351,11 @@ contract SampleContract {
 <img src="solidity_logo.svg" class="mini-logo" />
 
 <!--
-Por lo tanto otra herramienta importante es el compilador.
+Por lo tanto otra herramienta importante es el compilador de Solidity.
 
 El cuál podemos instalar como un paquete global de Node.js.
 
-Y vamos a ver como podemos compilar un contrato de ejemplo.
+Y vamos a ver como podemos compilar un contrato de ejemplo, como este, en el que tenemos una simple función que devuelve un entero.
 -->
 
 ---
@@ -396,16 +396,18 @@ Contract JSON ABI
 <!--
 Para compilar un contrato, ejecutaremos 2 comandos.
 
-Por un lado el que genera el ByteCode.
+Por un lado, el primero, que genera el ByteCode, que como he dicho antes es lo que interpretarán las Ethereum Virtual Machines.
 
-Y por otro lado el que genera el JSON ABI.
+Y por otro lado, tenemos el comando que genera el JSON ABI, que nos servirá para interactuar con los Smart Contracts.
+
+Ahora lo veremos mejor con los ejemplo en Remix.
 -->
 
 ---
 layout: quote
 ---
 
-# Solidity & Remix IDE
+# Solidity & Remix IDE *express*
 
 <!--
 Veamos un mini curso express de Solidity en Remix IDE.
@@ -432,7 +434,7 @@ titleRow: true
 <!--
 Esto ha sido pequeña muestra de como podemos crear los Smart Contracts.
 
-Obviamente me he dejado muchos puntos que no dan tiempo a comentar en la presentación. 
+Obviamente me he dejado muchos puntos que no dan tiempo a comentar en la presentación, pero bueno con esto al menos se puede empezar.
 
 Pero aqui teneis otras partes que permite el lenguaje.
 -->
@@ -459,6 +461,8 @@ titleRow: true
   - Datos
 - Guardar un Contrato
 - Recoger un Contrato
+
+[Smart Contract](https://etherscan.io/address/0x417477727937a97704a9a3ffc44e4a4163cea586#contracts)
 
 ::right::
 
@@ -487,7 +491,21 @@ contract Contracts {
 ```
 
 <!--
-El objetivo de este es guardar "Contrato", donde tenemos una Id y unos Datos, que se enviaban encriptados. Recordemos que los datos son siempre públicos.
+En este Smart Contract, el objetivo es el de guardar una serie de "Contratos", donde tenemos una Id y unos Datos, que se enviaban encriptados. Recordemos que los datos son siempre públicos.
+
+Como hemos visto antes, lo primero es la versión de Solidity.
+
+La estructura de los datos.
+
+Tenemos un mapping, donde un entero sin signo nos lleva a un contrato.
+
+Guardamos el dueño del Smart Contract.
+
+Tenemos un evento que se lanza al registrar un nuevo Contrato.
+
+Y un modificador para comprobar que ciertas funciones sólo las puede ejecutar el dueño del Contrato.
+
+Y en el constructor lo guardamos quien es el dueño.
 -->
 
 ---
@@ -513,13 +531,13 @@ returns(uint)
 ```
 
 <!--
-Aquí vemos la función que guarda un contrato en la blockchain.
+Aquí vemos la función que guarda uno de estos Contratos en la Blockchain.
 
-Se asegura que solo puede crearlos el dueño del Smart Contract.
+Primero, se asegura con el modificador, que solo puede crearlos el dueño del Smart Contract.
 
-Nos aseguramos que es un contrato nuevo, ya que por requisitos de la aplicación no podemos modificarlos.
+Después con un require, nos aseguramos que es un contrato nuevo, ya que por requisitos de la aplicación no podemos modificarlos.
 
-Y finalmente emitimos un evento y lo devolvemos.
+Y finalmente emitimos un evento y devolvemos la id que se ha registrado.
 -->
 
 ---
@@ -546,9 +564,9 @@ returns(
 <!--
 Y por otro lado tenemos la función que recoge un contrato dada una id.
 
-Lo recoge en memoria.
+En esta línea vemos como recogerlo en memoria.
 
-Y lo devuelve.
+Y finalmente lo devolvemos.
 -->
 
 ---
@@ -570,9 +588,9 @@ image: backend_libs.jpg
 - Truffle
 
 <!--
-Para el desarrollo backend nosotros utilizamos Node.js. Pero hay librerias para muchos lenguajes como Python, Java, etc.
+Para el desarrollo backend se utilizó Node.js. Pero hay librerias para muchos lenguajes como Python, Java, etc.
 
-Aquí existen distintas librerias que podemos utilizar y son muy parecidas.
+En Node.js existen distintas librerias que podemos utilizar y son muy parecidas.
 
 Para esta presentación he elegido Ethers, ya que podemos utilizarla tanto en backend como en frontend.
 -->
@@ -618,9 +636,15 @@ const eths = ethers.utils.formatEther(balance);
 <!--
 El primer paso es Conectar con nuestra billetera.
 
-Al ser en backend, si queremos introducir datos, debemos proporcionar obligatoriamente una clave privada de una wallet.
+Al ser en backend, si queremos introducir datos, debemos proporcionar obligatoriamente una clave privada de una billetera. Por ejemplo, Ganache, siempre nos provee con 10 Cuentas y podemos ver la clave privada.
 
-Como vemos también podemos leer los datos de la billetera, como el balance.
+Lo primero es elegir el provider, es decir, la red, y con la clave privada, la billetera (variable signer).
+
+Como vemos también podemos leer los datos de la billetera, como el balance, la clave pública o address.
+
+Un punto importante es que el balance se devuelve en weis, que es la unidad de medida más pequeña, y mediante la función formatEther lo estamos transformando. 
+
+Para que nos hagamos a la idea necesitamos 10^18 weis para tener un Ether. Sería como la medida más pequeña, como el equivalente a un céntimo.
 -->
 
 ---
@@ -657,7 +681,6 @@ let smartContract = new ethers.Contract(
   contractData.abi, 
   signer
 );
-smartContract = smartContract.connect(signer);
 ```
 
 <style scope>
@@ -667,11 +690,15 @@ smartContract = smartContract.connect(signer);
 </style>
 
 <!--
-Otro punto importante seria poder desplegar el SmartContract o utilizar uno ya desplegado.
+Otro punto importante seria poder desplegar el Smart Contract o utilizar uno ya desplegado.
 
-Para uno nuevo necesitaremos el código ABI y el Bytecode.
+Para uno nuevo necesitaremos el código ABI y el Bytecode. Y para esto utilizaremos la clase ContractFactory de ethers y el método deploy. 
 
-Mientras que si el contrato ya fue desplegado necesitaremos la dirección del contrato y el código ABI.
+Importante que estamos utilizando la variable "signer", que como dije antes es la billetera, y que será el dueño del contrato. 
+
+Por otro lado, a la función deploy podemos enviarle parámetros si el constructor necesita parámetros.
+
+Mientras que, si el contrato ya fue desplegado, necesitaremos la dirección pública del contrato y el código ABI. En este caso utilizaremos la clase Contract de ethers.
 -->
 
 ---
@@ -697,6 +724,8 @@ console.log('contract',contractc);
 
 <!--
 Finalmente, teniendo el Smart Contract podremos invocar las funciones directamente sobre él.
+
+Aquí podemos ver como llamamos a las funciones "addContract" y "getContractById".
 -->
 
 ---
@@ -717,7 +746,9 @@ image: frontend_libs.jpg
 - **Ethers**
 
 <!--
-Al igual que con el backend, para la parte frontend también tenemos distintas librerias. Como dije antes voy a utilizar ethers, para que el código sea similar.
+Al igual que con el backend, para la parte frontend también tenemos distintas librerias. 
+
+Como dije antes, os voy a enseñar ethers, para que el código sea similar a lo que hemos visto en el backend.
 -->
 
 ---
@@ -746,7 +777,13 @@ const network = await this.provider.getNetwork();
 ```
 
 <!--
-La diferencia entre el backend y el frontend, es que aqui nos vamos a conectar mediante Metamask, y por lo tanto no necesitaremos la clave privada de la billetera.
+La diferencia entre el backend y el frontend, es que aqui nos vamos a conectar mediante MetaMask, y por lo tanto no necesitaremos la clave privada de la billetera.
+
+Si no que, la clave privada ya la tendrá configurada el usuario en MetaMask y él podrá elegir que Cuenta quiere utilizar.
+
+También podemos reaccionar a eventos como cuando el usuario cambia de red o cuando cambia de cuenta.
+
+Lo típico en cualquier web que interactua con Smart Contracts o Billeteras, es que tenga un botón como el que vemos en la esquina arriba a la derecha, para conectar nuestra billetera.
 -->
 
 ---
@@ -801,6 +838,10 @@ const deploy = () => store.deploy();
     <Console />
   </div>
 </ConnectedComponent>
+
+<!--
+Al igual que en el backend, utilizaremos la clase ContractFactory para crear un Smart Contract o la clase Contract para utilizar uno ya existente.
+-->
 
 ---
 cols: 1-1
@@ -866,6 +907,12 @@ const addContract = async () => await store.addContract(
   </div>
 </ContractDeployedComponent>
 
+<!--
+Siguiendo con el ejemplo. Para crear un Contrato necesitaremos una id y una serie de datos.
+
+Además podemos registrarnos al evento newContractRegistered.
+-->
+
 ---
 cols: 1-1
 ---
@@ -927,6 +974,12 @@ const lines = ref(['Linea 1', 'Linea 2']);
   <pre>{{ contract }}</pre>
 </ContractDeployedComponent>
 
+<!--
+Y por último aquí podemos ver como llamar a la función getContractById.
+
+Como vimos con los mappings, si ponemos una id que aún no tiene datos, nos va a devolver los datos por defecto.
+-->
+
 ---
 
 # Recursos útiles
@@ -939,7 +992,7 @@ const lines = ref(['Linea 1', 'Linea 2']);
 - [@VittoStack](https://twitter.com/VittoStack)
 
 <!--
-Bueno, con esto ya hemos visto lo necesario para poder empezar a realizar nuestros propios Smart Contract.
+Y con esto ya hemos visto lo necesario para poder empezar a realizar nuestros propios Smart Contract.
 
 Por un lado hemos visto las herramientas necesarias.
 

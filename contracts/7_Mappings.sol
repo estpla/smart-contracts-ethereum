@@ -12,8 +12,12 @@ contract Arrays {
     string lastName;
   }
 
+  event newPersonAdded(uint id);
+
   function addPerson(string memory firstName, string memory lastName) public {
     peopleCount++;
     people[peopleCount] = Person(peopleCount, firstName, lastName);
+
+    emit newPersonAdded(peopleCount);
   }
 }
