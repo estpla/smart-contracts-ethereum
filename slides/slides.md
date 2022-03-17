@@ -990,6 +990,7 @@ Como vimos con los mappings, si ponemos una id que aún no tiene datos, nos va a
 - [Front-end DApp development with Ethers.js](https://www.youtube.com/watch?v=a0osIaAOFSE)
 - [Codies Alert](https://www.codiesalert.com/)
 - [@VittoStack](https://twitter.com/VittoStack)
+- [OurTube - Decentralized YouTube](https://github.com/suhailkakar/Decentralized-YouTube)
 
 <!--
 Y con esto ya hemos visto lo necesario para poder empezar a realizar nuestros propios Smart Contract.
