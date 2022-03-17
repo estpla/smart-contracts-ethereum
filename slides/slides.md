@@ -351,9 +351,9 @@ contract SampleContract {
 <img src="solidity_logo.svg" class="mini-logo" />
 
 <!--
-Por lo tanto otra herramienta importante en el compilador.
+Por lo tanto otra herramienta importante es el compilador.
 
-Lo podemos instalar como un paquete de Nodejs.
+El cuál podemos instalar como un paquete global de Node.js.
 
 Y vamos a ver como podemos compilar un contrato de ejemplo.
 -->
@@ -406,6 +406,10 @@ layout: quote
 ---
 
 # Hands-on Solidity
+
+<!--
+Veamos un mini curso express de Solidity en Remix IDE.
+-->
 
 ---
 cols: 1-1
@@ -541,7 +545,10 @@ returns(
 
 <!--
 Y por otro lado tenemos la función que recoge un contrato dada una id.
-Lo recoge en memoria y lo devuelve.
+
+Lo recoge en memoria.
+
+Y lo devuelve.
 -->
 
 ---
@@ -928,3 +935,17 @@ const lines = ref(['Linea 1', 'Linea 2']);
 - [Solidity, Blockchain, and Smart Contract Course](https://www.youtube.com/watch?v=M576WGiDBdQ)
 - [Solidity Zero to Hero Course](https://www.codiesalert.com/courses/free-solidity-course/)
 - [Front-end DApp development with Ethers.js](https://www.youtube.com/watch?v=a0osIaAOFSE)
+- [Codies Alert](https://www.codiesalert.com/)
+- [@VittoStack](https://twitter.com/VittoStack)
+
+<!--
+Bueno, con esto ya hemos visto lo necesario para poder empezar a realizar nuestros propios Smart Contract.
+
+Por un lado hemos visto las herramientas necesarias.
+
+Por otro lado el lenguaje Solidity, como podemos compilarlo y desplegarlo.
+
+Y finalmente como podemos interactuar desde el backend y el frontend.
+
+Aquí os dejo una serie de recursos útiles, sobretodo os recomiendo el primero que es un Roadmap completo para Web3.
+-->
