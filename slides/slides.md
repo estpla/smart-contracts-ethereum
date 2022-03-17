@@ -214,7 +214,7 @@ titleRow: true
 
 <style>
 .footnotes-sep {
-  @apply mt-50 opacity-10;
+  @apply mt-47 opacity-10;
 }
 .footnotes {
   @apply text-sm opacity-75;
@@ -292,7 +292,7 @@ titleRow: true
 
 <style scoped>
 .footnotes-sep {
-  @apply mt-26 opacity-10;
+  @apply mt-20 opacity-10;
 }
 .footnotes {
   @apply text-sm opacity-75;
@@ -405,7 +405,7 @@ Y por otro lado el que genera el JSON ABI.
 layout: quote
 ---
 
-# Hands-on Solidity
+# Solidity & Remix IDE
 
 <!--
 Veamos un mini curso express de Solidity en Remix IDE.
@@ -462,7 +462,7 @@ titleRow: true
 
 ::right::
 
-```solidity {all|4-7|all}
+```solidity {all|1|4-7|8|9|11|13-16|18-20|all}
 pragma solidity ^0.5.0;
 
 contract Contracts {
