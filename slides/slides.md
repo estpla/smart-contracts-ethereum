@@ -530,10 +530,101 @@ layout: image-right
 image: backend_libs.jpg
 ---
 
-# Librerias backend
+# Backend: Nodejs
 
-- Lib 1
-- Lib 2
+- Web3.js
+- **Ethers**
+- Truffle
+
+---
+cols: 1-1
+slideTitle: Conectar con Wallet
+titleRow: true
+---
+
+- Provider o red
+- Wallet / Signer
+  - Private Key
+
+::right::
+
+#### Conectar
+```js
+const ethers = require('ethers');
+
+const provider = new ethers.providers.JsonRpcProvider();
+const signer = new ethers.Wallet(privateKey, provider);
+```
+
+#### Leer información
+```js
+const balance = await provider.getBalance(signer.address);
+const eths = ethers.utils.formatEther(balance);
+
+// signer.address -> 
+// 0xa0FAE559e3980459081c7ACDC8E7832f32455A81
+
+// eths -> 
+// 99.6998341
+```
+
+---
+cols: 1-1
+slideTitle: Deploy Smart Contract
+titleRow: true
+---
+
+- Nuevo
+  - ABI
+  - Bytecode
+- Existente
+  - ABI
+  - Adress
+
+::right::
+
+#### Crear Smart Contract
+```js
+const factory = new ethers.ContractFactory(
+  contractData.abi, 
+  contractData.bytecode, 
+  signer
+);
+const smartContract = await factory.deploy();
+// contract.address ->
+// 0xEDB79D0884A667aD565E7B93F83377cD85B6F1aB
+```
+
+#### User Smart Contract existente
+```js
+let smartContract = new ethers.Contract(
+  contractAddress, 
+  contractData.abi, 
+  signer
+);
+smartContract = smartContract.connect(signer);
+```
+
+---
+cols: 1
+slideTitle: Invocar funciones
+titleRow: true
+---
+
+```js
+const response = await smartContract.addContract(
+  1, 
+  "My data"
+);
+console.log('addContract', response);
+```
+
+```js
+const contract = await smartContract.getContractById(
+  1
+);
+console.log('contract',contractc);
+```
 
 ---
 background: background5.jpg
@@ -551,6 +642,12 @@ image: frontend_libs.jpg
 
 - Web3.js
 - **Ethers**
+
+---
+cols: 1-1
+---
+
+# Conectar con Wallet
 
 ---
 cols: 1-1
